@@ -1,0 +1,136 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  /* opacidade do fundo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+  /* garante que o modal fique por cima */
+}
+
+.modal-content {
+  background: var(--background-light);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+/* ========== Formulário ========== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+}
+
+/* ========== Ações ========== */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: var(--text-color-light);
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
+}
+
+/* ========== Card (existente) ========== */
+.card {
+  background: var(--background-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px var(--box-shadow-light);
+}
+
+.card h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.btn-primary#open-modal {
+  width: 100%;
+  font-size: 1rem;
+}
+
+
+.upload-box {
+  border: 2px dashed #9ca3af;
+  /* cinza elegante */
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+
+  background-color: #fafafa;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.upload-box.dragging {
+  border-color: #2563eb;
+  /* azul chamativo */
+  background-color: #eff6ff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.upload-placeholder {
+  font-size: 15px;
+  color: #6b7280;
+  user-select: none;
+}

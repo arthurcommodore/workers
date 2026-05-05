@@ -1,0 +1,19 @@
+package components
+
+import "github.com/arthurcommodore/cotapreco/internal/model"
+
+templ Documents(documents []model.Document, t func(string, ...string) string) {
+	<div class="productsPage" x-data="document()">
+		for _, doc := range documents {
+			<div class="product-card">
+				<h2>{ doc.Title }</h2>
+				<button>{ t("title_see_details") }</button>
+			</div>
+		}
+		<div class="product-card">
+			<h2>{ t("title_add_document") }</h2>
+			<button @click="toggleModalCreate">{ t("title_add") }</button>
+		</div>
+		@ModalCreateDocument(t)
+	</div>
+}

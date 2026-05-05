@@ -1,0 +1,51 @@
+package components
+
+templ ModalCreateDocument(t func(string, ...string) string) {
+	<div class="modal-overlay" id="modal-document" x-show="showModalCreate" x-cloak>
+		<div class="modal-content">
+			<h2>{ t("title_create_analysis") }</h2>
+			<form @submit.prevent="submitDocument">
+				<!-- Título -->
+				<div class="form-group">
+					<label for="title">{ t("title_of_document") }</label>
+					<input type="text" id="title" placeholder={ t("example_title_analysis") } x-model="title" required/>
+				</div>
+				<!-- Upload -->
+				<div class="form-group">
+					<div
+						class="upload-box"
+						@dragover.prevent="dragging = true"
+						@dragleave.prevent="dragging = false"
+						@drop.prevent="handleDrop($event)"
+						:class="{ 'dragging': dragging }"
+					>
+						<input type="file" accept="application/pdf" x-ref="fileInput" class="hidden" @change="handleFiles" required/>
+						<div class="upload-placeholder" @click="$refs.fileInput.click()">
+							{ t("title_anex_pdf") }
+						</div>
+						<template x-if="files.length">
+							<ul class="file-list">
+								<template x-for="(file, i) in files" :key="file.name + file.size">
+									<li>
+										<span x-text="file.name"></span>
+										<button type="button" @click="removeFile(i)">✕</button>
+									</li>
+								</template>
+							</ul>
+						</template>
+					</div>
+				</div>
+				<!-- Ações -->
+				<div class="form-actions">
+					<button type="button" class="btn-secondary" @click="toggleModalCreate">
+						{ t("title_cancel") }
+					</button>
+					<button type="submit" class="btn-primary" :disabled="loading">
+						<span x-show="!loading">{ t("loaded_title") }</span>
+						<span x-show="loading">{ t("loading_title") }</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+}
