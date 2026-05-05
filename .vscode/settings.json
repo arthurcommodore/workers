@@ -1,0 +1,13 @@
+{
+  "search.exclude": {
+    "**/old_code": true
+  },
+  "files.watcherExclude": {
+    "**/old_code/**": true
+  },
+  "gopls": {
+    "directoryFilters": [
+      "-old_code"
+    ]
+  }
+}
